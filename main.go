@@ -14,8 +14,8 @@ func main() {
 	go client.CliInteractor(authorizer)
 
 	const (
-		apiId= 901789
-		apiHash= "325ee9de98e6e16d3a615cb9331774e4"
+		apiId= 00000 // telegram api ID
+		apiHash= "ksdhfjkhsjfhfkjnsdkcjfnsdkfkdjsnf" // telegram api hash key 
 	)
 
 	authorizer.TdlibParameters <- &client.TdlibParameters{
@@ -50,7 +50,7 @@ func main() {
 			text, _ := Event.Message.Content.(*client.MessageText)
 			//fmt.Printf("%s\n", text.Text.Text)
 
-			if Event.Message.SenderUserId != 780484786 {
+			if Event.Message.SenderUserId != 000000000 {  // your account id
 				req := client.SendMessageRequest{
 					ChatId: Event.Message.ChatId,
 					InputMessageContent: &client.InputMessageText{
@@ -65,13 +65,7 @@ func main() {
 				if err != nil {
 					log.Fatalf("SendMessage error: %s, \t%v\n", err, resp)
 				}
-				fmt.Printf("\nSendMessage response : %v \n %T \n", resp, resp)
-				//resp.SendingState.MessageSendingStateType()
-				//		}
 			}
 		}
 	}
 }
-
-//149.154.167.40:443
-//149.154.167.50:443  id: 552563440
