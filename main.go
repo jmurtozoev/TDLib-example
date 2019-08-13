@@ -48,8 +48,7 @@ func main() {
 		if update.GetClass() == client.ClassUpdate && update.GetType() == client.TypeUpdateNewMessage {
 			Event := update.(*client.UpdateNewMessage)
 			text, _ := Event.Message.Content.(*client.MessageText)
-			//fmt.Printf("%s\n", text.Text.Text)
-
+			
 			if Event.Message.SenderUserId != 000000000 {  // your account id
 				req := client.SendMessageRequest{
 					ChatId: Event.Message.ChatId,
